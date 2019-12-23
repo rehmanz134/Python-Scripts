@@ -1,0 +1,76 @@
+'''
+oh man this will definately take a while. during my undergrad, many people who had not
+taken accounting in high school found it really confusing where certain things ended
+up on a balance sheet, how, and why. as a little test of my own coding prowess, and 
+accounting knowledge, I decided to create a very basic and mainstream accounting 
+balance sheet generator, that uses a very standard and easy to follow way of asking
+the user questions, and generating a balance sheet based on certain information for them.
+Please keep in mind, as this is not a general ledger program (which i may make soon), this
+will simply ask for balance sheet amounts and calculate remaining results. it is up to the
+user to provide accurate numbers that will work.
+'''
+
+#begin
+
+print("Welcome to a basic, mainstream balance sheet generator")
+
+#ASSETS
+c = float(input("Ending cash balance? Put 0 if none: "))
+r = float(input("Ending receivables balance? Put 0 if none: "))
+land = float(input("Ending land balance? Put 0 if none: "))
+build = float(input("Ending building balance? Put 0 if none: "))
+eqip = float(input("Ending equipment balance? Put 0 if none: "))
+dep = float(input("Ending depreciation balance? Put 0 if none: "))
+inv = float(input("Ending inventory balance? Put 0 if none: "))
+prep = float(input("Ending prepaid expenses?balance? Put 0 if none: "))
+
+TA = 
+
+#LIABILITIES
+pay = float(input("Ending payables balance? Put 0 if none: "))
+tax = float(input("Ending tax payable balance? Put 0 if none: "))
+i_tax = float(input("Ending income tax balance? Put 0 if none: "))
+note = float(input("Ending notes payable balance? Put 0 if none: "))
+bond = float(input("Ending bond payables balance? Put 0 if none: "))
+interest = float(input("Ending interest payable balance? Put 0 if none: "))
+
+#EQUITY
+div = float(input("Ending dividends declared and paid balance? Put 0 if none: "))
+re = float(input("BEGINNING retained earnings balance? Put 0 if none: "))
+pref = float(input("Ending preffered shares given balance? Put 0 if none: "))
+comm = float(input("Ending common shared given balance? Put 0 if none: "))
+
+name = input("Name of corporation: ")
+date = input("Date in the following format: month, date, year")
+
+more = "As at "
+date = more + date
+
+print("---------------------------------------------------------------------------------------------")
+print("{:^90}".format(name))
+print("---------------------------------------------------------------------------------------------")
+print("                               Statement of Financial Position                               ")
+print("---------------------------------------------------------------------------------------------")
+print("{:^94s}".format(date))
+print("---------------------------------------------------------------------------------------------")
+
+print("""
+CURRENT ASSETS
+Cash                                                                                 ${}
+Receivables                                                                           {}
+Prepaid Expenses                                                                      {}
+Inventory                                                                             {}
+                                                                                      --------------
+""".format(c,r,prep,inv))
+
+print("""
+NON-CURRENT ASSETS
+Land                                                                                 ${}
+Building                                                                              {}
+Equipment                                                        ${}
+Less: Depreciation                                               ({})
+                                                                 --------------
+
+                                                                                     --------------
+""".format(c,r,prep,inv))
+
