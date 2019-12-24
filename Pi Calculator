@@ -9,14 +9,23 @@ python can help determine certain values close to pi
 
 pi = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
 
-accuracy = int(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
+accuracy = str(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
 
-number = int(input("""
+while "." in accuracy:
+  accuracy = (input("Please enter only integer values: "))
+  
+accuracy = int(accuracy)
+
+number = (input("""
 Please enter the largest value you would 
 like to be searched for combinations that result in pi
 (note, anything above 1000 will take a very long time 
 to search): """))
 
+while "." in number:
+  number = (input("Please enter only integer values: "))
+
+number = int(number)
 accuracy_new = accuracy + 1
 
 
