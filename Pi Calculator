@@ -11,15 +11,11 @@ pi = "3.141592653589793238462643383279502884197169399375105820974944592307816406
 
 accuracy = int(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
 
-
-while accuracy >= 7:
-  print("""This script only searches numbers 1-1000, of which no approximations can be found to {} decimal places.
-  If you would like pi to {} decimals, please change the range found in my code from 1000 to a much larger number,
-  and let the program run up to a few hours, as anything above 1000 numbers will take up a lot of ram, and take a
-  very long time to compute, thank you.""".format(accuracy, accuracy))
-  
-  print("*****ALSO, after you change the range, please get rid of this while loop, as it will not let you proceed")
-  accuracy = int(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
+number = int(input("""
+Please enter the largest value you would 
+like to be searched for combinations that result in pi
+(note, anything above 1000 will take a very long time 
+to search): """))
 
 accuracy_new = accuracy + 1
 
