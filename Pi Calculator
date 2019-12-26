@@ -11,7 +11,7 @@ pi = "3.141592653589793238462643383279502884197169399375105820974944592307816406
 
 accuracy = str(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
 
-while "." in accuracy:
+while "." in accuracy or accuracy > 100:
   accuracy = (input("Please enter only integer values: "))
   
 accuracy = int(accuracy)
