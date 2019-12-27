@@ -1,0 +1,23 @@
+words = input("Please type any words or numbers in: ")
+list = words.split()
+
+def word_counter(list):
+    sum = 0
+    for x in list:
+        sum += 1
+    other_sum = 0
+    for i in words:
+        other_sum += 1 
+    return sum, other_sum
+    
+
+words, char = word_counter(list)
+
+if words ==  1 and char == 1:
+    print("There is [{}] word and [{}] character in your input.".format(words,char))
+elif words == 1 and char != 1:
+    print("There is [{}] word and [{}] characters in your input.".format(words,char))
+elif words != 1 and char == 1:
+    print("There is [{}] words and [{}] character in your input.".format(words,char))
+else:
+    print("There are [{}] words and [{}] characters in your input.".format(words,char))
