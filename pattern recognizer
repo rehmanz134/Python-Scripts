@@ -1,0 +1,20 @@
+seqq = input("Enter the first 3 numbers, seperated by a comma: ")
+seq = seqq.split(",")
+
+
+def pattern_recognizer(seq):
+    next_term = "Unable to determine :("
+    #addition pattern?
+    if int(seq[2])-int(seq[1]) == int(seq[1])-int(seq[0]):
+        next_term = int(seq[2]) + (int(seq[2])-int(seq[1]))
+    elif int(seq[0])-int(seq[1]) == int(seq[1])-int(seq[2]):
+        next_term = int(seq[2])-(int(seq[0])-int(seq[1]))
+    elif int(seq[2])/int(seq[1]) == int(seq[1])/int(seq[0]):
+        next_term = int(int(seq[2]) * (int(seq[2])/int(seq[1])))
+    elif int(seq[0])/int(seq[1]) == int(seq[1])/int(seq[2]):
+        next_term = int(int(seq[2]) * (int(seq[0])/int(seq[1])))
+    return next_term
+    
+result = pattern_recognizer(seq)
+
+print("The next term in the pattern [{}], is: [{}]".format(seqq,result))
