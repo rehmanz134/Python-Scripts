@@ -9,10 +9,10 @@ python can help determine certain values close to pi
 
 pi = "3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679"
 
-accuracy = str(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits): "))
+accuracy = str(input("How accurate would you like this fraction representation of pi to be? (Enter number of digits, MAX 100): "))
 
 while "." in accuracy or accuracy > 100:
-  accuracy = (input("Please enter only integer values: "))
+  accuracy = (input("Please enter only integer values and values less than or equal to 100: "))
   
 accuracy = int(accuracy)
 
