@@ -1,0 +1,19 @@
+
+
+for i in words:
+    if i in ".,/'[]-!@#$%^&*(){}\?<>;:":
+        words = words.replace(i,"")
+        
+l = words.split()
+
+def word_freq(l):
+    e = {}
+    for x in l:
+        e[x] = l.count(x)
+    return e
+
+result = word_freq(l)
+
+
+for x in result:
+    print("Word: [{}] Count: ".format(x))
