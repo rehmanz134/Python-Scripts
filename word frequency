@@ -14,4 +14,4 @@ result = word_freq(l)
 
 
 for x in result:
-    print("Word: [{}] Count: {}".format(x,result[x]))
+    print("Word: [{}] Count: [{}]".format(x,result[x]))
