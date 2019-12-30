@@ -1,3 +1,5 @@
+words = input("Please enter any amount of words: ")
+
 for i in words:
     if i in ".,/'[]-!@#$%^&*(){}\?<>;:":
         words = words.replace(i,"")
