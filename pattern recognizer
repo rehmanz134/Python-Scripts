@@ -1,4 +1,4 @@
-seqq = input("Enter the first 3 numbers, seperated by a comma: ")
+seqq = input("Enter the first 3 numbers of a pattern, seperated by a comma: ")
 seq = seqq.split(",")
 
 
