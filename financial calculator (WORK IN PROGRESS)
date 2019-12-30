@@ -1,0 +1,10 @@
+solve = input("What are you solving for? Time [T], Payments [PMT], Present Value [PV], Future Value [FV], Rate [R]: ")
+
+if input == "T":
+    pmt = input("Monthly payment amount: ")
+    
+elif input == "PMT":
+elif input == "PV":
+elif input == "FV":
+else:
+    
