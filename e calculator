@@ -1,0 +1,32 @@
+
+
+#setting a constant, e
+
+e = "2.7182818284590452353602874713526624977572470936999595749669676277240766303535475945713821785251664274"
+
+accuracy = str(input("How accurate would you like this fraction representation of e to be? (Enter number of digits, MAX 100): "))
+
+while "." in accuracy or int(accuracy) > 100:
+  accuracy = (input("Please enter only integer values and values less than or equal to 100: "))
+  
+accuracy = int(accuracy)
+
+number = (input("""
+Please enter the largest value you would 
+like to be searched for combinations that result in 
+(note, anything above 1000 will take a very long time 
+to search): """))
+
+while "." in number:
+  number = (input("Please enter only integer values: "))
+
+number = int(number)
+accuracy_new = accuracy + 1
+
+
+for i in range(number, 1, -1): #divides all numbers from 1-number
+  for x in range(1, number): #by all numbers from 1-number
+    if e[0:accuracy_new + 1] in str(i/x): #this will search if a person's accuracy for e exists in these fractions
+      print("e, to {} decimals is approximately equal to {}/{}.".format(accuracy, i, x)) #prints if they do
+
+#thank you for browsing. 
