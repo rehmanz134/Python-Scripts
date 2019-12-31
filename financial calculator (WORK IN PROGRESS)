@@ -1,10 +1,18 @@
+import math
+
+type_1 = input("Annuity (A) or single payment? (SA)? ")
+
 solve = input("What are you solving for? Time [T], Payments [PMT], Present Value [PV], Future Value [FV], Rate [R]: ")
 
-if input == "T":
-    pmt = input("Monthly payment amount: ")
+if solve == "T" and type_1 == "SA":
+    amt = input("FV or PV? ")
+    if amt == "FV":
+    future= input("Future value? ")
+    rate = input("Interest rate? ")
+    cm = input("Compunding period? ")
     
+
 elif input == "PMT":
 elif input == "PV":
 elif input == "FV":
 else:
-    
