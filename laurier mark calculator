@@ -1,8 +1,14 @@
-mark = input("Final Letter Grade: ")
+mark = input("Final Letter Grade (eg. B-): ").upper()
 
-before = input("Mark Going Into the Exam: ")
+before = int(input("Mark Going Into the Exam (percentage, eg. 70): "))
 
-weight = input("Final Exam Weight: ")
+weight = int(input("Final Exam Weight: (percentage, eg. 50): "))
+
+bonus = int(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
+
+weight = weight/100
+
+rest = 1 - weight
 
 marks = {
 
@@ -12,6 +18,17 @@ marks = {
     
 }
 
+
 if mark in marks:
-    print(marks[mark])
+    first = (marks[mark])[0] - bonus
+    
+    second = (marks[mark])[1] - bonus
+
+    lower = (first - (rest*before))/weight
+    
+    upper = (second - (rest*before))/weight
+    
+print("""
+If you ended with an {}, and you had {}% before the exam, you must 
+have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
     
