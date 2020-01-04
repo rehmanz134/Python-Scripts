@@ -1,3 +1,5 @@
+
+
 verif = input("Do you know your mark going into the exam (Yes/No): ")
 if verif.lower() == "yes":
 
@@ -36,13 +38,19 @@ if verif.lower() == "yes":
     mark,before,lower,upper = mark_calc(mark,marks,bonus,rest,before,weight)
     
     print("""
-    If you ended with an {}, and you had {}% before the exam, you must 
-    have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
+If you ended with an {}, and you had {}% before the exam, you must 
+have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
 
 else:
     stuff = int(input("How many items contribute to your grade (NOT INCLUDING THE FINAL EXAM): "))
     
     empty = {}
     for i in range(1, stuff+1):
-        items = input("Enter Item {}'s weight, and your grade on it (eg. 20,65): ".format(i)).split(",")
-        empty
+        items = input("Enter Item {}'s weight (eg. 20): ".format(i))
+        grades = input("Enter the grade you achieved on item {}: ".format(i))
+        empty["{}".format(item)] = grades
+    sum = 0
+    for i in empty:
+        print(i)
+
+    
