@@ -1,34 +1,48 @@
-mark = input("Final Letter Grade (eg. B-): ").upper()
+verif = input("Do you know your mark going into the exam (Yes/No): ")
+if verif.lower() == "yes":
 
-before = int(input("Mark Going Into the Exam (percentage, eg. 70): "))
+    mark = input("Final Letter Grade (eg. B-): ").upper()
 
-weight = int(input("Final Exam Weight: (percentage, eg. 50): "))
+    before = int(input("Mark Going Into the Exam (percentage, eg. 70): "))
 
-bonus = int(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
+    weight = int(input("Final Exam Weight: (percentage, eg. 50): "))
 
-weight = weight/100
+    bonus = int(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
 
-rest = 1 - weight
+    weight = weight/100
 
-marks = {
+    rest = 1 - weight
+
+    marks = {
 
 "A+":[90,100], "A":[85,89], "A-":[80,84],
 "B+":[77,79],"B":[73,76],"B-":[70,72],"C+":[67,69],"C":[63,66],"C-":[60,62],"D+":[57,59],
 "D":[53,56],"D-":[50,52],"F":[0,49]
     
-}
+    }
+    
+    def mark_calc(mark,marks,bonus,rest,before,weight):
+        if mark in marks:
+            first = (marks[mark])[0] - bonus
+    
+            second = (marks[mark])[1] - bonus
 
+            lower = (first - (rest*before))/weight
+    
+            upper = (second - (rest*before))/weight
+            
+            return mark,before,lower,upper
+            
+    mark,before,lower,upper = mark_calc(mark,marks,bonus,rest,before,weight)
+    
+    print("""
+    If you ended with an {}, and you had {}% before the exam, you must 
+    have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
 
-if mark in marks:
-    first = (marks[mark])[0] - bonus
+else:
+    stuff = int(input("How many items contribute to your grade (NOT INCLUDING THE FINAL EXAM): "))
     
-    second = (marks[mark])[1] - bonus
-
-    lower = (first - (rest*before))/weight
-    
-    upper = (second - (rest*before))/weight
-    
-print("""
-If you ended with an {}, and you had {}% before the exam, you must 
-have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
-    
+    empty = {}
+    for i in range(1, stuff+1):
+        items = input("Enter Item {}'s weight, and your grade on it (eg. 20,65): ".format(i)).split(",")
+        empty
