@@ -4,6 +4,13 @@ Welcome to the Laurier Mark Calulator - Made by Zohaib Rehman!
 
 """)
 verif = input("Do you know your mark going into the exam (Yes/No): ")
+
+verif = verif.lower()
+
+while (verif != "yes" and  verif != "no"):
+    verif = input("Please enter valid input (Yes/No): ")
+    
+    
 if verif.lower() == "yes":
 
     mark = input("Final Letter Grade (eg. B-): ").upper()
