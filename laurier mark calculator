@@ -41,7 +41,7 @@ if verif.lower() == "yes":
     mark,before,lower,upper = mark_calc(mark,marks,bonus,rest,before,weight)
     
     print("""
-If you ended with an {}, and you had {}% before the exam, you must 
+If you ended with a(n) {}, and you had {:.02f}% before the exam, you must 
 have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
 
 else:
@@ -95,7 +95,7 @@ else:
     mark,before,lower,upper = mark_calc(mark,marks,bonus,rest,before,weight)
     
     print("""
-If you ended with an {}, and you had {}% before the exam, you must 
+If you ended with a(n) {}, and you had {:.02f}% before the exam, you must 
 have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
     
 
