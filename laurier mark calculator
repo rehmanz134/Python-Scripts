@@ -1,3 +1,8 @@
+print("""
+
+Welcome to the Laurier Mark Calulator - Made by Zohaib Rehman!
+
+""")
 verif = input("Do you know your mark going into the exam (Yes/No): ")
 if verif.lower() == "yes":
 
