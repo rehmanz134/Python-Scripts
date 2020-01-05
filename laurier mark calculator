@@ -1,15 +1,13 @@
-
-
 verif = input("Do you know your mark going into the exam (Yes/No): ")
 if verif.lower() == "yes":
 
     mark = input("Final Letter Grade (eg. B-): ").upper()
 
-    before = int(input("Mark Going Into the Exam (percentage, eg. 70): "))
+    before = float(input("Mark Going Into the Exam (percentage, eg. 70): "))
 
-    weight = int(input("Final Exam Weight: (percentage, eg. 50): "))
+    weight = float(input("Final Exam Weight: (percentage, eg. 50): "))
 
-    bonus = int(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
+    bonus = float(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
 
     weight = weight/100
 
@@ -44,13 +42,56 @@ have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower
 else:
     stuff = int(input("How many items contribute to your grade (NOT INCLUDING THE FINAL EXAM): "))
     
-    empty = {}
+    sum_grades = []
+    weighting = []
     for i in range(1, stuff+1):
-        items = input("Enter Item {}'s weight (eg. 20): ".format(i))
-        grades = input("Enter the grade you achieved on item {}: ".format(i))
-        empty["{}".format(item)] = grades
-    sum = 0
-    for i in empty:
-        print(i)
+        items = float(input("Enter Item {}'s weight (eg. 20): ".format(i)))
+        weighting.append(items)
+        items = items/100
+        grades = float(input("Enter the grade you achieved on item {}: ".format(i)))
+        sum_grades.append(items*grades)
+        
+    out_of = sum(weighting)
+    grades_b4 = (sum(sum_grades) / out_of)*100
+    print('Your grade going into the exam is "{:.0f}%"'.format(grades_b4))
+    
+    mark = input("Final Letter Grade (eg. B-): ").upper()
+
+    before = grades_b4
+
+    weight = 100 - sum(sum_grades)
+
+    bonus = float(input("Enter Any Bonus PERCENTAGE Achieved (eg. 0): "))
+
+    weight = weight/100
+
+    rest = 1 - weight
+
+    marks = {
+
+"A+":[90,100], "A":[85,89], "A-":[80,84],
+"B+":[77,79],"B":[73,76],"B-":[70,72],"C+":[67,69],"C":[63,66],"C-":[60,62],"D+":[57,59],
+"D":[53,56],"D-":[50,52],"F":[0,49]
+    
+    }
+    
+    def mark_calc(mark,marks,bonus,rest,before,weight):
+        if mark in marks:
+            first = (marks[mark])[0] - bonus
+    
+            second = (marks[mark])[1] - bonus
+
+            lower = (first - (rest*before))/weight
+    
+            upper = (second - (rest*before))/weight
+            
+            return mark,before,lower,upper
+            
+    mark,before,lower,upper = mark_calc(mark,marks,bonus,rest,before,weight)
+    
+    print("""
+If you ended with an {}, and you had {}% before the exam, you must 
+have gotten between {:.0f}% and {:.0f}% on the exam.""".format(mark,before,lower,upper))
+    
 
     
