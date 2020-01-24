@@ -1,0 +1,53 @@
+words = str(input("Please paste in the first text: "))
+print("")
+words = words.split()
+
+other_words = str(input("Please paste in the suspect text: "))
+
+other_words = other_words.split()
+
+first_list = []
+
+sus_list = []
+
+for i in words:
+    first_list.append(i)
+        
+for z in other_words:
+    sus_list.append(z)
+
+ln = len(first_list)
+
+count = 0
+for i in first_list:
+    if i in sus_list:
+        count += 1 
+
+avg = (count / ln) * 100
+
+if avg >= 0 and avg <= 50:
+    print("""
+The suspect text is {:.0f}% similar to the original text.
+
+Plagiarsim Risk = LOW
+    """.format(avg))
+elif avg > 50 and avg < 70:
+    print("""
+The suspect text is {:.0f}% similar to the original text.
+
+Plagiarsim Risk = MODERATE
+    """.format(avg))
+
+elif avg >= 70 and avg <90:
+    print("""
+The suspect text is {:.0f}% similar to the original text.
+
+Plagiarsim Risk = MODERATE-HIGH
+    """.format(avg))
+    
+else:
+    print("""
+The suspect text is {:.0f}% similar to the original text.
+
+Plagiarsim Risk = HIGH
+    """.format(avg))
