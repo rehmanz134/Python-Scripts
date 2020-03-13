@@ -1,0 +1,21 @@
+ln = int(input("Enter loan amount [example, 125000]:  "))
+
+yr = int(input("Enter mortgage term in years [example, 25]:  "))
+
+yr = yr * 12
+
+ir = int(input("Enter interest rate [example, 5]:  "))
+
+ir = ir / 1200
+
+pmt = ln / (((1-(1+ir)**-yr))/ir)
+
+print("Your monthly payments are: ${:.02f}".format(pmt))
+
+time = int(input("How many years do you wish to display? "))
+
+for i in range(0,time +1):
+    
+    pv = pmt * (((1-(1+ir)**-(yr-(i*12))))/ir)
+    
+    print("Balance Remaining After Year {}: ${:.02f}".format(i,pv))
