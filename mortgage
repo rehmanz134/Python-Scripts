@@ -1,0 +1,13 @@
+ln = int(input("Enter loan amount [example, 125000]:  "))
+
+yr = int(input("In how many years would you like to to pay this off [example, 25]:   "))
+
+yr = yr * 12
+
+ir = int(input("Enter interest rate [example, 5]:  "))
+
+ir = ir / 1200
+
+pmt = ln / (((1-(1+ir)**-yr))/ir)
+
+print("Your monthly payments are: ${:.02f}, if you wish to pay this mortage off in {} years".format(pmt,yr/12))
