@@ -25,7 +25,10 @@ for h in range(1,x+1):
     z = b    
     
     print(
-"""Month {:<3}: Payment: {:.02f} | Interest: {:.02f} | Principial: {:.02f} | Remaining: {:.02f}""".format(h,p,u,g,b))
+"""\nMonth {:<3}: Payment: {:.02f} | Interest: {:<6.02f} | Principial: {:<6.02f} | Remaining: {:<6.02f}""".format(h,p,u,g,b))
+
+
+
 
     
 
