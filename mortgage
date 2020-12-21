@@ -4,9 +4,9 @@ print("""Welcome to the Canadian mortgage calculator by Zohaib Rehman.
 
 x = int(input("How many years is the mortgage? "))
 x = x*12
-y = int(input("How many payments per year? "))
-z = float(input("How much is the loan amount? "))
-i = float(input("What is the interest rate? "))
+y = int(input("\nHow many payments per year? "))
+z = float(input("\nHow much is the loan amount? "))
+i = float(input("\nWhat is the interest rate? "))
 i = i/100
 
 a = ((1 + (i/2))**(2/y)) - 1
@@ -16,7 +16,7 @@ j = (1 - (1+a)**(-1*x))/(a)
 
 p = z/j
 
-print("Your monthly payments are: ${:.02f}".format(p))
+print("\nYour monthly payments are: ${:.02f}".format(p))
 
 for h in range(1,x+1):
     u = z * a
@@ -25,7 +25,9 @@ for h in range(1,x+1):
     z = b    
     
     print(
-"""Month {:<4}: Payment: {:.02f} | Interest: {:.02f} | Principial: {:.02f} | Remaining: {:.02f}""".format(h,p,u,g,b))
+"""Month {:<3}: Payment: {:.02f} | Interest: {:.02f} | Principial: {:.02f} | Remaining: {:.02f}""".format(h,p,u,g,b))
 
     
+
+
 
