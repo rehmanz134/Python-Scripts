@@ -17,6 +17,7 @@ j = (1 - (1+a)**(-1*x))/(a)
 p = z/j
 
 print("\nYour monthly payments are: ${:.02f}".format(p))
+print(" ")
 
 for h in range(1,x+1):
     u = z * a
@@ -25,7 +26,7 @@ for h in range(1,x+1):
     z = b    
     
     print(
-"""\nMonth {:<3}: Payment: {:.02f} | Interest: {:<6.02f} | Principial: {:<6.02f} | Remaining: {:<6.02f}""".format(h,p,u,g,b))
+"""Month {:<3}: Payment: {:.02f} | Interest: {:<6.02f} | Principial: {:<6.02f} | Remaining: {:<6.02f}""".format(h,p,u,g,b))
 
 
 
