@@ -1,13 +1,23 @@
-ln = int(input("Enter loan amount [example, 125000]:  "))
+print("""Welcome to the Canadian mortgage calculator by Zohaib Rehman.
 
-yr = int(input("In how many years would you like to to pay this off [example, 25]:   "))
+""")
 
-yr = yr * 12
+x = int(input("How many years is the mortgage? "))
+y = int(input("How many payments per year? "))
+z = float(input("How much is the loan amount? "))
+i = float(input("What is the interest rate? "))
+i = i/100
 
-ir = int(input("Enter interest rate [example, 5]:  "))
+a = ((1 + (i/2))**(2/y)) - 1
 
-ir = ir / 1200
+print(a)
 
-pmt = ln / (((1-(1+ir)**-yr))/ir)
+j = (1 - (1+a)**(-1*x))/(a)
 
-print("Your monthly payments are: ${:.02f}, if you wish to pay this mortage off in {} years".format(pmt,yr/12))
+p = z/j
+
+print("Your monthly payments are: ${:.02f}".format(p))
+
+for h in range(1,x+1):
+    f = (1 - (1+a)**(-1*(x-h)))/(a)
+    print(f)
