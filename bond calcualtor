@@ -1,0 +1,36 @@
+print("""Welcome to the bond calculator made by Zohaib Rehman""")
+
+
+x = input("What would you like to calculate (enter price, length, coupon, or rate): ")
+
+x = str(x)
+
+if x == "price":
+    a = float(input("Please enter the bond coupon: "))
+    b = float(input("How many compounding periods? "))
+    a = a/b
+    c = float(input("How many years is the bond? "))
+    r = float(input("What is the interest rate? "))
+    f = float(input("What is the face value? "))
+    d = float(b*c)
+    r = float((r/b)/100)
+    price = (f/((1+r)**(d))) + a*((1-((1+r)**-d))/(r))
+    print("Bond Price (PV): ${:.02f}".format(price))
+    
+elif x == "coupon":
+    a = float(input("Please enter the bond price: "))
+    b = float(input("How many compounding periods? "))
+    c = float(input("How many years is the bond? "))
+    r = float(input("What is the interest rate? "))
+    f = float(input("What is the face value? "))
+    d = float(b*c)
+    r = float((r/b)/100)
+    jp = (f/((1+r)**(d)))
+    bf = a - jp
+    pmt = bf / ((1-((1+r)**-d))/(r))
+    pmt = pmt * b
+    print("Bond Annual Coupon: ${:.02f}".format(pmt))
+    
+
+    
+    
