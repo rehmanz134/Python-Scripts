@@ -45,12 +45,22 @@ elif x == "length":
             print("Years: {:.02f}".format(i/b))
             break
         
+else:
+    a = float(input("Please enter the bond coupon: "))
+    b = float(input("How many compounding periods? "))
+    e = float(input("Enter the bond price: "))
+    c = float(input("How many years is the bond? "))
+    c = b*c
+    f = float(input("What is the face value? "))
+    for i in range(10,1001):
+        i = (i/1000)
+        if round(e) == round((f/((1+i)**(c))) + a*((1-((1+i)**-c))/(i))):
+            print("Rate: {:.02f}".format(i))
+    
 
 
     
     
     
-    
-
     
     
