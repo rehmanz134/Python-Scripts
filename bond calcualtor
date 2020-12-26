@@ -31,6 +31,26 @@ elif x == "coupon":
     pmt = pmt * b
     print("Bond Annual Coupon: ${:.02f}".format(pmt))
     
+elif x == "length":
+    a = float(input("Please enter the bond coupon: "))
+    b = float(input("How many compounding periods? "))
+    e = float(input("Enter the bond price: "))
+    a = a/b
+    r = float(input("What is the interest rate? "))
+    f = float(input("What is the face value? "))
+    r = float((r/b)/100)
+    for i in range(1,10000):
+        i = i*.01
+        if round(e,1) == round((f/((1+r)**(i))) + a*((1-((1+r)**-i))/(r)),1):
+            print("Years: {:.02f}".format(i/b))
+            break
+        
+
+
+    
+    
+    
+    
 
     
     
