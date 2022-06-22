@@ -1,0 +1,27 @@
+x = int (input ("Please enter your taxable income this year: ")) 
+
+
+a = 49020
+b = 98040
+c = 151978
+d = 216511
+
+e = .15
+f = .205
+g = .26 
+h = .29 
+i = .33
+
+if x <= a:
+  i_t = e*x
+  
+elif x > a and x <= b:
+    i_t = a*e + f*(x-a)
+
+elif x > b and x <= c:
+    i_t = a*e + b*f + g*(x-b)
+  
+a_t = (x - i_t)
+print("Total Income: {:.02f}".format(x))
+print("Income Tax: {:.02f}".format(i_t))
+print("After Tax Income: {:.02f}".format(a_t))
