@@ -1,4 +1,12 @@
-x = int (input ("""Please enter your taxable income this year:  """)) 
+print("Welcome to the Canadian Federal Income Tax Calculator for the Tax Year 2021!")
+
+print("Written by Zohaib Rehman")
+
+x = int (input ("""Please enter your taxable income this year:  $""")) 
+
+while x < 0:
+    x = int (input ("""Please enter a positive value for taxable income this year:  $""")) 
+
 
 
 a = 49020
@@ -12,8 +20,9 @@ g = .26
 h = .29 
 i = .33
 
+
 if x <= a:
-  i_t = e*x
+    i_t = e*x
   
 elif x > a and x <= b:
     i_t = a*e + f*(x-a)
@@ -23,10 +32,17 @@ elif x > b and x <= c:
     
 elif x > c and x <= d:
     i_t = a*e +a*f + (c-b)*g + h*(x-c)
-  
-  
+
+else:
+    i_t = a*e +a*f + (c-b)*g + (d-c)*h+ i*(x-d)
+
 a_t = (x - i_t)
+    
+t_r = (i_t / x)*100
+
+
 print("""
 Total Income: ${:,.02f}""".format(x))
-print("Income Tax: ${:,.02f}".format(i_t))
+print("Federal Income Tax: ${:,.02f}".format(i_t))
 print("After Tax Income: ${:,.02f}".format(a_t))
+print("Effective Tax Rate: {:,.02f}%".format(t_r))
