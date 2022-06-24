@@ -1,12 +1,14 @@
+#work in progress, many bugs to do, provincial, CPP/EI coming later.
+
 print("Welcome to the Canadian Federal Income Tax Calculator for the Tax Year 2021!")
 
 print("Written by Zohaib Rehman")
 
 x = int (input ("""Please enter your taxable income this year:  $""")) 
 
+
 while x < 0:
     x = int (input ("""Please enter a positive value for taxable income this year:  $""")) 
-
 
 
 a = 49020
@@ -20,26 +22,40 @@ g = .26
 h = .29 
 i = .33
 
+x = x - 13808
 
-if x <= a:
-    i_t = e*x
-  
-elif x > a and x <= b:
-    i_t = a*e + f*(x-a)
 
-elif x > b and x <= c:
-    i_t = a*e +a*f + g*(x-b)
+if x<=0:
+    i_t=0
+    x = x + 13808
+    a_t = x
     
-elif x > c and x <= d:
-    i_t = a*e +a*f + (c-b)*g + h*(x-c)
+elif x>0:
 
-else:
-    i_t = a*e +a*f + (c-b)*g + (d-c)*h+ i*(x-d)
+    if x <= a:
+        i_t = e*(x)
 
-a_t = (x - i_t)
+    elif x > a and x <= b:
+        i_t = a*e + f*(x-a)
+
+    elif x > b and x <= c:
+        i_t = a*e +a*f + g*(x-b)
     
-t_r = (i_t / x)*100
+    elif x > c and x <= d:
+        i_t = a*e +a*f + (c-b)*g + h*(x-c)
 
+    else:
+        i_t = a*e +a*f + (c-b)*g + (d-c)*h+ i*(x-d)
+
+    x = x + 13808
+    a_t = (x - i_t)
+    
+    if x >0:
+        t_r = (i_t / x)*100
+    else:
+        t_r = 0
+
+t_r = 0
 
 print("""
 Total Income: ${:,.02f}""".format(x))
