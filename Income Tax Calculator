@@ -29,6 +29,8 @@ if x<=0:
     i_t=0
     x = x + 13808
     a_t = x
+    t_r = 0
+
     
 elif x>0:
 
@@ -55,7 +57,6 @@ elif x>0:
     else:
         t_r = 0
 
-t_r = 0
 
 print("""
 Total Income: ${:,.02f}""".format(x))
