@@ -1,0 +1,23 @@
+import random
+
+print("""Welcome to Zohaib Rehman's Ontario Random Number Generator
+""")
+
+c = int(input("""How many number would you like to generate? """))
+
+print("""
+Please find your number(s) below:
+""")
+
+x = int(226)
+
+
+def numgen(c):
+    while c > 0:
+        p = random.randint(100, 999)
+        e = random.randint(1000, 9999)
+        print("{}-{}-{}".format(x,p,e))
+        c = c -1
+        
+numgen(c)
+    
