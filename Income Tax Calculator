@@ -6,6 +6,21 @@ print("Written by Zohaib Rehman")
 
 x = int (input ("""Please enter your taxable income this year:  $""")) 
 
+n = int (input ("""Enter the pay periods this year: """)) 
+
+q = 3500
+
+e_i = .0158
+
+cpp_r = .057
+
+b_e = int(q/n)
+
+dd_d = x - b_e
+
+cpp_c = dd_d*cpp_r
+
+er = e_i*x
 
 while x < 0:
     x = int (input ("""Please enter a positive value for taxable income this year:  $""")) 
@@ -53,13 +68,17 @@ elif x>0:
     a_t = (x - i_t)
     
     if x >0:
-        t_r = (i_t / x)*100
+        t_r = ((i_t +er+cpp_c)/ x)*100
     else:
         t_r = 0
 
+if x <=0:
+    t_r = ((i_t +er+cpp_c)/ x)*100
 
 print("""
 Total Income: ${:,.02f}""".format(x))
 print("Federal Income Tax: ${:,.02f}".format(i_t))
+print("EI contributions: ${:,.02f}".format(er))
+print("CPP contributions: ${:,.02f}".format(cpp_c))
 print("After Tax Income: ${:,.02f}".format(a_t))
 print("Effective Tax Rate: {:,.02f}%".format(t_r))
