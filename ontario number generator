@@ -1,23 +1,52 @@
 import random
 
-print("""Welcome to Zohaib Rehman's Ontario Random Number Generator
+print("""Welcome to Zohaib Rehman's Ontario Random Phone Number Generator
 """)
 
 c = int(input("""How many number would you like to generate? """))
 
-print("""
+
+b = str(input("Would you like to type in an area code or have a random one (enter Y to input an area code, N for a random area code): "))
+
+x_set = [365,548,705,226,289,613,807,437,249,343,416,519,647,905]
+
+
+if b == "N":
+
+    print("""
 Please find your number(s) below:
+    """)
+
+
+    x = random.sample(x_set,1)
+
+    def numgen(c):
+        while c > 0:
+            p = random.randint(100, 999)
+            e = random.randint(1000, 9999)
+            print("{}-{}-{}".format(x,p,e))
+            c = c -1
+    
+    numgen(c)
+    
+else:
+    g = int(input("Please enter the area code you would like to use: "))
+    print("""
+Please find your number(s) below: 
 """)
+    
+    def numgen(c):
+        while c > 0:
+            p = random.randint(100, 999)
+            e = random.randint(1000, 9999)
+            print("{}-{}-{}".format(g,p,e))
+            c = c -1
+        if g not in x_set:
+            print("***WARNING, AREA CODE ENTERED DOES NOT BELONG TO ONTARIO***")
 
-x = int(226)
-
-
-def numgen(c):
-    while c > 0:
-        p = random.randint(100, 999)
-        e = random.randint(1000, 9999)
-        print("{}-{}-{}".format(x,p,e))
-        c = c -1
+    
+    numgen(c)
         
-numgen(c)
+
+
     
