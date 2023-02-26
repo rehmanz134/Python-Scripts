@@ -1,0 +1,30 @@
+import requests
+from bs4 import BeautifulSoup
+from yandex.Translater import Translater
+
+# Enter your Yandex API key here
+translate = Translater('<your-api-key>')
+
+# Get the input text from the user
+input_text = input('Enter text to translate: ')
+
+# Translate the text to Punjabi using Yandex API
+translation = translate.translate(input_text, 'en-pa')['text'][0]
+
+# Create a session to maintain the state across requests
+with requests.Session() as session:
+    # Load the Sangam Learn Punjabi website
+    session.get('https://sangam.learnpunjabi.org/')
+
+    # Make a POST request to submit the translated text
+    response = session.post('https://sangam.learnpunjabi.org/Home/translate/',
+                            data={'source': 'roma', 'dest': 'gurmukhi', 'input': translation})
+
+    # Parse the HTML response using BeautifulSoup
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    # Get the translated text from the response
+    translated_text = soup.select_one('span#result_box').text.strip()
+
+# Print the final output
+print(f'Translated text: {translated_text}')
