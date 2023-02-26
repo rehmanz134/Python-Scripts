@@ -1,0 +1,13 @@
+from translate import Translator
+
+# Prompt the user to enter the text to translate
+input_text = input("Enter text to translate: ")
+
+# Create a translator object
+translator = Translator(to_lang="pa")
+
+# Translate the input text
+punjabi_text = translator.translate(input_text)
+
+# Print the translated text
+print(punjabi_text)
