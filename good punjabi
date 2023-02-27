@@ -1,0 +1,21 @@
+from selenium import webdriver
+
+
+Gurmukhi_text = input(str("Enter Punjabi text: "))
+
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+
+web = webdriver.Chrome(options=options)
+web.get('https://sangam.learnpunjabi.org/')
+
+
+gur = web.find_element("xpath", '//*[@id="txtUrdu"]')
+gur.send_keys(Gurmukhi_text)
+
+button = web.find_element("xpath", '//*[@id="btnConvert"]')
+button.click()
+
+shah = web.find_element(by=By.ID, value='tejout')
+print(shah)
