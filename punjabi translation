@@ -1,5 +1,6 @@
 from selenium import webdriver
 from translate import Translator
+from selenium.webdriver.common.by import By
 
 # Prompt the user to enter the text to translate
 input_text = input("Enter text to translate: ")
@@ -29,5 +30,6 @@ gur.send_keys(Gurmukhi_text)
 button = web.find_element("xpath", '//*[@id="btnConvert"]')
 button.click()
 
-shah = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[2]/div/span[1]')
-print(shah)
+shah = web.find_element(By.XPATH, '/html/body/form/div[3]/div[4]/div[2]/div/div')
+
+print(shah.text)
