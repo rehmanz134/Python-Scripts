@@ -1,3 +1,4 @@
+from selenium import webdriver
 from translate import Translator
 
 # Prompt the user to enter the text to translate
@@ -9,5 +10,24 @@ translator = Translator(to_lang="pa")
 # Translate the input text
 punjabi_text = translator.translate(input_text)
 
-# Print the translated text
-print(punjabi_text)
+# next function starts below
+
+
+Gurmukhi_text = punjabi_text
+
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+
+web = webdriver.Chrome(options=options)
+web.get('https://sangam.learnpunjabi.org/')
+
+
+gur = web.find_element("xpath", '//*[@id="txtUrdu"]')
+gur.send_keys(Gurmukhi_text)
+
+button = web.find_element("xpath", '//*[@id="btnConvert"]')
+button.click()
+
+shah = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[2]/div/span[1]')
+print(shah)
