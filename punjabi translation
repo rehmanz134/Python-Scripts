@@ -1,21 +1,18 @@
 from selenium import webdriver
 from translate import Translator
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
-# Prompt the user to enter the text to translate
 input_text = input("Enter text to translate: ")
 
-# Create a translator object
 translator = Translator(to_lang="pa")
 
-# Translate the input text
 punjabi_text = translator.translate(input_text)
-
-# next function starts below
-
 
 Gurmukhi_text = punjabi_text
 
+print(Gurmukhi_text)
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
@@ -23,13 +20,17 @@ options.add_experimental_option("detach", True)
 web = webdriver.Chrome(options=options)
 web.get('https://sangam.learnpunjabi.org/')
 
-
 gur = web.find_element("xpath", '//*[@id="txtUrdu"]')
 gur.send_keys(Gurmukhi_text)
 
-button = web.find_element("xpath", '//*[@id="btnConvert"]')
+d = WebDriverWait(web, 3)
+
+button = web.find_element("xpath", '/html/body/form/div[3]/div[4]/div[1]/div/div[3]/div[3]/h3/input')
 button.click()
 
-shah = web.find_element(By.XPATH, '/html/body/form/div[3]/div[4]/div[2]/div/div')
+shah = WebDriverWait(web, 10).until(
+    EC.presence_of_element_located((By.XPATH, '//*[@id="tejout"]')))
 
-print(shah.text)
+output = web.execute_script("return arguments[0].textContent;", shah).strip()
+
+print(output)
