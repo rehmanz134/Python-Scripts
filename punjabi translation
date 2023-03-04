@@ -14,7 +14,6 @@ punjabi_text = translator.translate(input_text)
 
 Gurmukhi_text = punjabi_text
 
-print(Gurmukhi_text)
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
@@ -26,27 +25,22 @@ d = WebDriverWait(web, 10)
 
 select = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[1]/div/div[1]/div[1]/nav/div/div[2]/ul/li/a')
 select.click()
-print("Clicked.")
 
 gurtosh = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[1]/div/div[1]/div[1]/nav/div/div[2]/ul/li/ul/li[11]/a')
 gurtosh.click()
-print("Clicked gurmukhi")
 
 
 gur = web.find_element("xpath", '//*[@id="txtUrdu"]')
 gur.send_keys(Gurmukhi_text)
-print("sent text.")
 
 
 ggg = WebDriverWait(web, 20)
 
 button = web.find_element("xpath", '/html/body/form/div[3]/div[4]/div[1]/div/div[3]/div[3]/h3/input')
 button.click()
-print("Clicked transliterate.")
 
 
 e = WebDriverWait(web, 20)
-print("waiting..")
 
 
 # wait until the output box is visible
