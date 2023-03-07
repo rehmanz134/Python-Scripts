@@ -1,0 +1,60 @@
+from selenium import webdriver
+from translate import Translator
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+import time
+
+
+input_text = input("Enter text to translate: ")
+
+translator = Translator(to_lang="pa")
+
+punjabi_text = translator.translate(input_text)
+
+Gurmukhi_text = punjabi_text
+
+
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+
+web = webdriver.Chrome(options=options)
+web.get('https://sangam.learnpunjabi.org/')
+
+d = WebDriverWait(web, 5)
+
+select = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[1]/div/div[1]/div[1]/nav/div/div[2]/ul/li/a')
+select.click()
+
+gurtosh = web.find_element("xpath", '//*[@id="Form1"]/div[3]/div[4]/div[1]/div/div[1]/div[1]/nav/div/div[2]/ul/li/ul/li[11]/a')
+gurtosh.click()
+
+
+gur = web.find_element("xpath", '//*[@id="txtUrdu"]')
+gur.send_keys(Gurmukhi_text)
+
+
+ggg = WebDriverWait(web, 5)
+
+time.sleep(3)
+
+button = web.find_element("xpath", '/html/body/form/div[3]/div[4]/div[1]/div/div[3]/div[3]/h3/input')
+button.click()
+
+
+e = WebDriverWait(web, 5)
+
+
+# wait until the output box is visible
+output_box = WebDriverWait(web, 6).until(EC.visibility_of_element_located((By.ID, "tejout")))
+
+# wait for the output box to load its content
+time.sleep(3)
+
+# get the output text
+output_text = output_box.text.strip()
+
+# print the output
+
+print("Translated Text")
+print(output_text)
