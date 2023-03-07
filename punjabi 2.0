@@ -17,6 +17,7 @@ Gurmukhi_text = punjabi_text
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option("detach", True)
+options.add_argument('headless')
 
 web = webdriver.Chrome(options=options)
 web.get('https://sangam.learnpunjabi.org/')
