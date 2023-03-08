@@ -26,6 +26,12 @@
             padding: 10px;
             margin-left: 10px;
         }
+        #output-text {
+            font-family: "Noto Nastaliq Urdu", "Nastaliq", sans-serif;
+            font-size: 50px;
+            text-align: center;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
@@ -36,7 +42,7 @@
         <input type="submit" value="Translate">
     </form>
     {% if output_text %}
-        <p>{{ output_text }}</p>
+        <div id="output-text">{{ output_text }}</div>
     {% endif %}
 </body>
 </html>
