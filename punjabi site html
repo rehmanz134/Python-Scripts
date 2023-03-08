@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Punjabi to Shahmukhi</title>
+    <style>
+        body {
+            font-family: "Nastaliq", sans-serif;
+            font-size: 32px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        form {
+            display: inline-block;
+            margin-bottom: 50px;
+        }
+        label, input {
+            font-size: 24px;
+        }
+        input[type="submit"] {
+            font-size: 20px;
+            padding: 10px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Punjabi to Shahmukhi Translator</h1>
+    <form method="POST">
+        <label for="input_text">Enter text to translate:</label>
+        <input type="text" id="input_text" name="input_text">
+        <input type="submit" value="Translate">
+    </form>
+    {% if output_text %}
+        <p>{{ output_text }}</p>
+    {% endif %}
+</body>
+</html>
