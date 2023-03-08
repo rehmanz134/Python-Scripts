@@ -2,16 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Punjabi to Shahmukhi</title>
+    <title>translator</title>
     <style>
         body {
             font-family: "Nastaliq", sans-serif;
-            font-size: 32px;
+            font-size: 50px;
             text-align: center;
             margin-top: 50px;
         }
         h1 {
             margin-bottom: 30px;
+            font-size: 36px; /* smaller font size */
         }
         form {
             display: inline-block;
@@ -28,7 +29,7 @@
     </style>
 </head>
 <body>
-    <h1>Punjabi to Shahmukhi Translator</h1>
+    <h1>Eng to Punjabi Pakistan (Shahmukhi) Translator</h1>
     <form method="POST">
         <label for="input_text">Enter text to translate:</label>
         <input type="text" id="input_text" name="input_text">
